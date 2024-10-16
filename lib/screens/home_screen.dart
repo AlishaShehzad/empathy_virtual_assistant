@@ -39,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void onSpeechToTextResult(SpeechRecognitionResult recognitionResult) {
     recordedAudioString = recognitionResult.recognizedWords;
-    print(recordedAudioString);
     setState(() {
       _speechResult = recordedAudioString;
       userInputTextEditingController.text = _speechResult;
