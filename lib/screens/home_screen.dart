@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController userInputTextEditingController = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final SpeechToText speechToTextInstance = SpeechToText();
   String recordedAudioString = "";
   bool isLoading = false;
@@ -51,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
         backgroundColor: const Color(0xFF090D1D),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
@@ -60,22 +62,56 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Image.asset("images/sound on.png"),
           ),
         ),
-        
-
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
-          
+          leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              icon: const Icon(Icons.dehaze, size: 40, color: Colors.white)),
+          backgroundColor: const Color(0xFF090D1D),
         ),
         body: SingleChildScrollView(
             child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.fromLTRB(0, 80, 0, 0),
                 child: Column(children: [
-                  //image
                   Center(
                     child: Image.asset(
                       "images/logo.png",
                     ),
                   ),
-
                   const SizedBox(
                     height: 150,
                     width: 380,
