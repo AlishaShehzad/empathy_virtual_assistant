@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: const Color(0xFF090D1D),
         ),
         body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.fromLTRB(20, 120, 20, 0),
             child: SingleChildScrollView(
               child: Column(children: [
                 Center(
@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Empathy is here to support you on your path to mental well-being, whether you're looking for counseling sessions, advice on your mental well-being, or ingenious conversation, Empathy provides support to encounter the issues you’re facing over your mental health and helps you to cope up with your psychological distress.",
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      color: Color(0xFFFFFFFF), // Set the text color with hex code
+                      color: Colors.white, // Set the text color with hex code
                     ),
                   ),
                 ),
