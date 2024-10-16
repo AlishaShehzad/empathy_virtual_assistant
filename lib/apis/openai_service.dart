@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class OpenAIService {
-
   Future<String> getResponse(String prompt) async {
     final url = Uri.parse('https://api.openai.com/v1/chat/completions'); // Use the appropriate endpoint for chat completions
     try {
